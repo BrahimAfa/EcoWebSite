@@ -1,11 +1,12 @@
 package com.eco.DAO;
 
+import java.sql.SQLException;
 import java.util.List;
 
-public interface IDAO<T> {
-	public List<T> getAll();
-	public T getOne(int id);
-	public void Updat(T id);
-	public void Insert(T id);
-	public void Delete (int id);
+public interface IDAO<T>  {
+	public List<T> getAll() throws SQLException;
+	public T getOne(int id) throws SQLException;
+	public boolean Update(T obj) throws SQLException;
+	public boolean Insert(T obj) throws SQLException;
+	public boolean Delete (int id) throws SQLException;
 }
