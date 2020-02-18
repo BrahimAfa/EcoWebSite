@@ -6,7 +6,5 @@ import java.util.List;
 public interface IDAO<T>  {
 	public List<T> getAll() throws SQLException;
 	public T getOne(int id) throws SQLException;
-	public boolean Update(T obj) throws SQLException;
 	public boolean Insert(T obj) throws SQLException;
-	public boolean Delete (int id) throws SQLException;
 }

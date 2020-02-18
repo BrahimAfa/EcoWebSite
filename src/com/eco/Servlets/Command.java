@@ -47,6 +47,7 @@ public class Command extends HttpServlet {
 
 		} catch (Exception e) {
 			response.getWriter().print("Parametre Not Valid");
+			response.sendRedirect("Store");
 			return;
 		}
 		products.add(p);
@@ -65,7 +66,7 @@ public class Command extends HttpServlet {
 		out.print("<tr><th scope='col'>#</th><th scope='col'>Product Name</th><th scope='col'>Price</th></tr>");
 		out.print("</thead>");
 		out.print("<tbody>"+Helpers.getProductAsHtmlTableRow(products)+"</tbody></table>");
-		out.print("<a href='Store'class='btn btn-primary btn-lg btn-block' style ='color: white;'>Add new Product</a>");
+		out.print("<a href='Store'class='btn btn-primary btn-lg btn-block' style ='color: white; margin-bottom: 10px;'>Add new Product</a>");
 		out.print("<form action='../U/Save' method='POST'>");
 		out.print("<Button type='Submit' class='btn btn-success btn-lg btn-block' style ='color: white;'>Save You're Order</a>");
 		out.println("</form></div></BODY></HTML>");

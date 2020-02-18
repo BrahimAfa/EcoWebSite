@@ -9,7 +9,7 @@ public class dbConnection {
 		try {
 			//no need for this in mysql connector 8.x.x
 			//Class.forName("com.mysql.jdbc.Driver"); 
-			 connection=DriverManager.getConnection(  "jdbc:mysql://localhost:3306/ecodb",User,Password);  
+			 connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/ecodb",User,Password);  
 			
 		}catch (SQLException e) {
 			e.printStackTrace();

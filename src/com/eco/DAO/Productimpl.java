@@ -48,20 +48,7 @@ public class Productimpl implements IDAO<Product> {
 		return product;
 	}
 
-	@Override
-	public boolean Update(Product obj) throws SQLException {
-		String Query = "Update Product set name = ? ,price=?,category=? where id = ?";
-		PreparedStatement pstmt = dbcnx.prepareStatement(Query);
-		pstmt.setString(1, obj.getName());
-		pstmt.setInt(2, obj.getPrice());
-		pstmt.setString(3, obj.getCatergory());
-		pstmt.setInt(4, obj.getId());
-		int rowsUpdated = pstmt.executeUpdate();
-		if (rowsUpdated > 0) return true;
-		return false;
 
-
-	}
 
 	@Override
 	public boolean Insert(Product obj) throws SQLException{
@@ -75,14 +62,5 @@ public class Productimpl implements IDAO<Product> {
 		return false;
 	}
 
-	@Override
-	public boolean Delete(int id) throws SQLException {
-		String Query = "Delete from Product where id = ?";
-		PreparedStatement pstmt = dbcnx.prepareStatement(Query);
-		pstmt.setInt(1, id);
-		int rowsDeleted = pstmt.executeUpdate();
-		if (rowsDeleted > 0) return true;
-		return false;
-	}
 
 }

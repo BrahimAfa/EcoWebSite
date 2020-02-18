@@ -48,21 +48,6 @@ public class Userimpl implements IDAO<User> {
 		return user;
 	}
 
-	@Override
-	public boolean Update(User obj) throws SQLException {
-		String Query = "Update User set fname = ? ,lname=?,email=?,password=? where id = ?";
-		PreparedStatement pstmt = dbcnx.prepareStatement(Query);
-		pstmt.setString(1, obj.getFirstName());
-		pstmt.setString(2, obj.getLastName());
-		pstmt.setString(3, obj.getEmail());
-		pstmt.setString(4, obj.getPassword());
-		pstmt.setInt(5, obj.getId());
-		int rowsUpdated = pstmt.executeUpdate();
-		if (rowsUpdated > 0) return true;
-		return false;
-
-
-	}
 
 	@Override
 	public boolean Insert(User obj) throws SQLException{
@@ -79,17 +64,6 @@ public class Userimpl implements IDAO<User> {
 
 	}
 
-	@Override
-	public boolean Delete(int id) throws SQLException {
-
-		String Query = "Delete from User where id = ?";
-		PreparedStatement pstmt = dbcnx.prepareStatement(Query);
-		pstmt.setInt(1, id);
-		int rowsDeleted = pstmt.executeUpdate();
-		if (rowsDeleted > 0) return true;
-		return false;
-
-	}
 	public User getUser(String email,String password) throws SQLException {
 		User user=null;
 		PreparedStatement prestmt = dbcnx.prepareStatement("select * from user where email = ? and password = ?");
